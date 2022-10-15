@@ -18,7 +18,7 @@ const handleOnClick = index => {
 const createTile = index  => {
     const tile = document.createElement('div');
     tile.classList.add('tile');
-    tile.onclick = e => handleOnClick(index);
+    tile.onclick = () => handleOnClick(index);
     return tile;
 }
 

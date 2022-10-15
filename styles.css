@@ -5,7 +5,7 @@
 
 @keyframes pan {
     from {
-        background-position: 0% center;
+        background-position: 0 center;
     }
 
     to {
@@ -76,7 +76,7 @@ body.toggled > #tiles > .tile:hover {
     color: white;
     font-family: "Rubik", sans-serif;
     font-size: 6vw;
-    margin: 0px;
+    margin: 0;
     pointer-events: none;
     transition: opacity 1200ms ease;
     width: 50vw;
