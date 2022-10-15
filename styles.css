@@ -1,0 +1,102 @@
+:root {
+    --g1: rgb(98, 0, 234);
+    --g2: rgb(236, 64, 122);
+}
+
+@keyframes pan {
+    from {
+        background-position: 0% center;
+    }
+
+    to {
+        background-position: 200% center;
+    }
+
+}
+
+
+body {
+    animation: pan 10s linear infinite;
+    background: linear-gradient(to right, var(--g1), var(--g2), var(--g1));
+    background-size: 200%;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
+
+body.toggled {
+    animation: none;
+}
+
+body.toggled > #title {
+    opacity: 0;
+}
+
+body.toggled > #title2 {
+    opacity: 1;
+}
+
+body.toggled > #tiles > .tile:hover {
+    opacity: 0.1 !important;
+}
+
+.centered {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+#tiles {
+    display: grid;
+    height: calc(100vh - 1px);
+    width: calc(100vw - 1px);
+    grid-template-rows: repeat(var(--rows), 1fr);
+    grid-template-columns: repeat(var(--columns), 1fr);
+}
+
+.tile {
+    cursor: pointer;
+    position: relative;
+}
+
+.tile:hover:before {
+    background-color: rgb(30, 30, 30);
+}
+
+.tile:before {
+    background-color: rgb(15, 15, 15);
+    content: "";
+    inset: 0.05rem;
+    position: absolute;
+}
+
+#title {
+    color: white;
+    font-family: "Rubik", sans-serif;
+    font-size: 6vw;
+    margin: 0px;
+    pointer-events: none;
+    transition: opacity 1200ms ease;
+    width: 50vw;
+    z-index: 3;
+}
+
+#title > .fancy {
+    color: var(--g2);
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.3em;
+    line-height: 0.9em;
+}
+
+#title2 {
+    color: rgba(255, 255, 255, 0.15);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 800ms ease;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.3em;
+    line-height: 0.9em;
+    z-index: 3;
+}
